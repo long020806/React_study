@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PubSub from 'pubsub-js'
 import axios from 'axios'
 export default class Search extends Component {
 
@@ -6,13 +7,17 @@ export default class Search extends Component {
         const {keyWordEle:{
             value:keyWord
         }} = this;
-        this.props.updateAppState({isFirst:false,isLoading:true})
+        // this.props.updateAppState({isFirst:false,isLoading:true})
+        PubSub.publish('atguigu',{isFirst:false,isLoading:true});
         axios.get(`/api1/search/users?q=${keyWord}`).then(
             res=>{
-                this.props.updateAppState({users:res.data.items,isLoading:false});
+                // this.props.updateAppState({users:res.data.items,isLoading:false});
+                PubSub.publish('atguigu',{users:res.data.items,isLoading:false});
+
             },
             err=>{
-                this.props.updateAppState({isLoading:false,err:err.message})
+                // this.props.updateAppState({isLoading:false,err:err.message})
+                 PubSub.publish('atguigu',{isLoading:false,err:err.message});
             }
         )
     }
