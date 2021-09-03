@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
 import store from '../../redux/store.js'
 export default class Count extends Component {
-    componentDidMount(){
-        store.subscribe(()=>{
-            this.setState({});
-        })
-    }
     state = {carName:"car"}
     increment = ()=>{
         const {value} = this.selectNumber;
