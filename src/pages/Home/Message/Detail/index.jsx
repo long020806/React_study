@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import qs from 'querystring'
+// import qs from 'querystring'
 const Detaildata = [
     {id:"01",content:"01"},
     {id:"02",content:"02"},
