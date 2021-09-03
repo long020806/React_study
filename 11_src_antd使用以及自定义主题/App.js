@@ -3,7 +3,9 @@ import {Button,DatePicker} from 'antd'
 import {WechatOutlined,WeiboOutlined,SearchOutlined} from '@ant-design/icons'
 import './App.less'
 const {RangePicker} = DatePicker;
-
+/**
+ * 注意本目录下craco.config.js 和 package.json 需放入 react_staging下
+ */
 
 export default class App extends Component {
     func = ()=>{
