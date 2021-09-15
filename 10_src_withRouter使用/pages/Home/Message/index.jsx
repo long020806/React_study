@@ -10,6 +10,15 @@ export default class Message extends Component {
             {id:'03',title:"消息3"},
         ]
     }
+    back=()=>{
+        this.props.history.goBack();
+    }
+    forward = ()=>{
+        this.props.history.goForward();
+    }
+    go = ()=>{
+        this.props.history.go(2)
+    }
     render() {
         const {messageArr} = this.state;
         return (
@@ -40,6 +49,9 @@ export default class Message extends Component {
                     {/* state参数无需声明接收 */}
                     {/* <Route path="/home/message/detail" component={Detail}></Route> */}
                 </Switch>
+                <button onClick={this.back}>回退</button>&nbsp;
+                <button onClick={this.forward}>前进</button>&nbsp;
+                <button onClick={this.go}>GO</button>
             </div>
         )
     }
